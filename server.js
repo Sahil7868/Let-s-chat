@@ -7,11 +7,11 @@ users=[];
 connections=[];
 
 server.listen(process.env.PORT || 8182);
-console.log("server running on 3000");
+console.log("server running on 8182");
 
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
+  res.sendFile(__dirname, 'public/index.html');
 });
 
 
