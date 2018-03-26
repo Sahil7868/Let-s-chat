@@ -11,7 +11,7 @@ console.log("server running on 8182");
 
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname, '/index.html');
+  res.sendFile(__dirname + '/index.html');
 });
 
 
