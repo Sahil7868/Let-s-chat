@@ -9,8 +9,13 @@ connections=[];
 server.listen(process.env.PORT || 8182);
 console.log("server running on 3000");
 app.get('/',function(req,res){
-    res.sendFile(__dirname + '/index.html');
+     res.send('Invalid Endpoint');
 });
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
+
 
 io.sockets.on('connection', function(socket){
 
