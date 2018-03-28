@@ -28,10 +28,10 @@ body{
                     <div class="form-group">
 
                             <label>User Name</label>
-                            <textarea class="form-control" id="username"></textarea>
+                            <textarea class="form-control" id="username" required/></textarea>
                     </div>
                     <br />
-                    <input type="submit"  class="btn btn-primary" value="Login" />
+                    <input type="submit" id="button1" class="btn btn-primary" value="Login" />
 
 
       </form>
@@ -62,7 +62,7 @@ body{
                     <div class="form-group">
 
                             <label>Enter Message</label>
-                            <textarea class="form-control" id="message"></textarea>
+                            <textarea class="form-control" id="message" required/></textarea>
                     </div>
                     <br />
                     <input type="submit"  class="btn btn-primary" value="Send Message" />
@@ -79,6 +79,10 @@ body{
 
 <script>
 $(function(){
+
+
+
+
         var socket= io.connect();
 
         var $mf=$('#mf');
@@ -90,6 +94,8 @@ $(function(){
         var $userform=$('#userform');
         var $users=$('#users');
 
+      
+
              $mf.submit(function(e){
                     e.preventDefault();
                     socket.emit('send message', $message.val());
@@ -100,6 +106,7 @@ $(function(){
              });
 
                $userform.submit(function(e){
+               
                     e.preventDefault();
                     socket.emit('new message', $username.val(),function(data){
                             if(data)
@@ -124,6 +131,7 @@ $(function(){
 
 
              });
+      
 });
 </script>
 
