@@ -38,11 +38,14 @@ socket.on('disconnect', function(data){
    // console.log(userslist[zone]);
 //delete userslist.zone[username];
    //users.splice(users.indexOf(username),1);
+    if(socket.username!=undefined)
+  { 
    var datalist=userslist[socket.zone];
   
     datalist.splice(datalist.indexOf(socket.username),1); 
   updateusername(socket.zone);
- connections.splice(connections.indexOf(socket),1);
+}
+connections.splice(connections.indexOf(socket),1);
 
  
 
